@@ -8,8 +8,9 @@ JavaPackages = \
         no/geosoft/npdio/field \
         no/geosoft/npdio/license \
         no/geosoft/npdio/pipeline \
+        no/geosoft/npdio/stratigraphy \
 	no/geosoft/npdio/survey \
-        no/geosoft/npdio/well \
+	no/geosoft/npdio/well \
 
 JavadocPackages = -subpackages no
 JavadocImage    = http://geosoft.no/images/NpdIoBox.250.png

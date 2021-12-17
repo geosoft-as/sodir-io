@@ -61,7 +61,7 @@ public final class NpdWellboreStratigraphy
    * <b>NPD description</b><br>
    * NPD's unique id for the wellbore.
    * <p>
-   * int, corresponds to NPD property <em>wlbNPDID_wellbore<em>
+   * int, corresponds to NPD property <em>wlbNPDID_wellbore</em>
    *
    * @return Wellbore NPD ID of this wellbore stratigraphy.
    */
@@ -129,7 +129,7 @@ public final class NpdWellboreStratigraphy
    * <b>NPD description</b><br>
    * Date when this record was updated last or inserted the first time.
    * <p>
-   * datetime, corresponds to NPD property <em>lsuWellboreUpdatedDate<em>
+   * datetime, corresponds to NPD property <em>lsuWellboreUpdatedDate</em>
    *
    * @return Date the wellbore of this wellbore stratigraphy was last updated. Null if N/A or unknown.
    */
