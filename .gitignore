@@ -1,0 +1,32 @@
+#
+# NetBeans
+#
+nbproject/
+
+#
+# IntelliJ
+#
+.idea/
+cc.iml
+out/
+
+#
+# JUnit
+#
+testreports/
+
+#
+# Derived content
+#
+NpdIo.jar
+/obj/
+/objtest/
+/docs/
+/build/
+/dist/
+.DS_Store
+
+#
+# Temporary files
+#
+*~

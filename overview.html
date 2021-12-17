@@ -1,0 +1,150 @@
+<!--
+For java-2-html formatting:
+
+http://java2html.blogspot.com/
+
+Add
+"background-color: #ffffee;" to the first pre tag
+
+and change border to
+"border: 1px solid #cccccc"
+
+-->
+
+<body>
+
+The GeoSoft NPD I/O module is a Java library for accessing data from the
+Norwegian Petroleum Directorate (NPD)
+<a href="http://factpages.npd.no/factpages/">fact pages</a>.
+
+<p>
+The NPD FactPages contain information regarding the petroleum activities on the
+Norwegian continental shelf.
+The information is synchronised with the NPD's databases on a daily basis.
+
+<p>
+A coding example is shown below:
+
+<!-- Copy from npdio.html -->
+<pre style='background-color: #ffffee; text-align: left; border: 1px solid #cccccc; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>import</span> no.geosoft.npdio.well.*;
+<span style='font-weight:bold;color:#7B0052;'>import</span> no.geosoft.npdio.field.*;
+:
+
+<span style='color:#3F7F5F'>//
+</span><span style='color:#3F7F5F'>// Read all NPD development wellbores
+</span><span style='color:#3F7F5F'>//
+</span>List&lt;NpdWellbore&gt; wellbores = NpdDevelopmentWellboreReader.readAll();
+
+<span style='color:#3F7F5F'>// Loop over the wellbores and write to console
+</span><span style='font-weight:bold;color:#7B0052;'>for</span> (NpdWellbore wellbore : wellbores)
+  System.out.println(wellbore);
+
+:
+
+<span style='color:#3F7F5F'>//
+</span><span style='color:#3F7F5F'>// Read all NPD fields
+</span><span style='color:#3F7F5F'>//
+</span>List&lt;NpdField&gt; fields = NpdFieldReader.readAll();
+
+<span style='color:#3F7F5F'>// Loop over the fields and load production data for each and write to console
+</span><span style='font-weight:bold;color:#7B0052;'>for</span> (NpdField field : fields) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+  System.out.println(field.getName());
+
+  <span style='color:#3F7F5F'>// Read production data
+</span>  ProductionReader.readAll(field);
+
+  <span style='color:#3F7F5F'>// Write oil production to console
+</span>  <span style='font-weight:bold;color:#7B0052;'>for</span> (Production.Entry productionEntry : field.getProduction().getEntries()) <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#7B0052;'>int</span> year = productionEntry.getYear();
+    <span style='font-weight:bold;color:#7B0052;'>int</span> month = productionEntry.getMonth();
+    <span style='font-weight:bold;color:#7B0052;'>double</span> oilProduction = productionEntry.getOil();
+
+    System.out.println(<span style='color:#2A00FF'>"Oil production: "</span> + year + <span style='color:#2A00FF'>"/"</span> + month + <span style='color:#2A00FF'>": "</span> + oilProduction);
+  <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+:</pre>
+
+
+
+<p>
+NPD I/O access data through HTTPS.
+As the URL for each data type may change over time,
+they can be provided by the client for flexibility.
+
+<p>
+As of October 2019 the correct URLs for each NPD data type is as follows:
+
+<p>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<th class="colFirst" scope="col">Data type</th>
+<th class="colLast" scope="col">URL</th>
+</tr>
+<tbody>
+
+<tr class="altColor">
+<td class="colFirst"><tt><b>NpdCompany</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+</tr>
+
+<tr class="rowColor">
+<td class="colFirst"><tt><b>NpdDevelopmentWellbore</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</tt></td>
+</tr>
+
+<tr class="altColor">
+<td class="colFirst"><tt><b>NpdDiscovery</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/discovery&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en</tt></td>
+</tr>
+
+<tr class="rowColor">
+<td class="colFirst"><tt><b>NpdExplorationWellbore</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</tt></td>
+</tr>
+
+<tr class="altColor">
+<td class="colFirst"><tt><b>NpdField</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+</tr>
+
+<tr class="rowColor">
+<td class="colFirst"><tt><b>NpdFixedFacility</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+</tr>
+
+<tr class="altColor">
+<td class="colFirst"><tt><b>NpdLicense</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en</tt></td>
+</tr>
+
+<tr class="rowColor">
+<td class="colFirst"><tt><b>NpdMoveableFacility</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+</tr>
+
+<tr class="altColor">
+<td class="colFirst"><tt><b>NpdOtherWellbore</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</tt></td>
+</tr>
+
+<tr class="rowColor">
+<td class="colFirst"><tt><b>NpdPipeline</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/tuf_pipeline_overview&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en</tt></td>
+</tr>
+
+<tr class="altColor">
+<td class="colFirst"><tt><b>NpdProduction</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+</tr>
+
+<tr class="rowColor">
+<td class="colFirst"><tt><b>NpdSurvey</b></tt></td>
+<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en</tt></td>
+</tr>
+
+</tbody>
+</table>
+
+</body>
