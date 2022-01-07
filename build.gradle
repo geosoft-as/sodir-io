@@ -1,0 +1,9 @@
+project.ext {
+  javadocName = "NPD I/O";
+  javadocImage = "http://geosoft.no/images/NpdIoBox.250.png";
+
+  javaMainClass = "no.geosoft.npdio.stratigraphy.Test";
+}
+
+apply from: "../tools/Gradle/main.gradle"
+
