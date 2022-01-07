@@ -19,7 +19,7 @@ public class Test
     // Print all entries for wellbore 1/5-5
     System.out.println("------------");
     System.out.println("All stratigraphy entries for well: 1/5-5");
-    NpdWellboreStratigraphy wellbore = stratigraphyManager.getWellbore("1/5-5");
+    NpdWellboreStratigraphy wellbore = stratigraphyManager.getWellboreStratigraphy("1/5-5");
     List<NpdStratigraphy> stratigraphy = wellbore.getLithostratigraphy();
     for (NpdStratigraphy strat : stratigraphy)
       System.out.println(strat);
@@ -27,14 +27,14 @@ public class Test
     // Print all entries for with BALDER formation
     System.out.println("------------");
     System.out.println("All stratigraphy entries with formation: BALDER");
-    List<NpdStratigraphy> stratigraphy2 = stratigraphyManager.getFormation("balder");
+    List<NpdStratigraphy> stratigraphy2 = stratigraphyManager.getStratigraphyByFormation("balder");
     for (NpdStratigraphy strat : stratigraphy2)
       System.out.println(strat);
 
     // Print all entries with NORDLAND group
     System.out.println("------------");
     System.out.println("All stratigraphy entries with group: NORDLAND");
-    List<NpdStratigraphy> stratigraphy3 = stratigraphyManager.getGroup("nordland");
+    List<NpdStratigraphy> stratigraphy3 = stratigraphyManager.getStratigraphyByGroup("nordland");
     for (NpdStratigraphy strat : stratigraphy3)
       System.out.println(strat);
 
