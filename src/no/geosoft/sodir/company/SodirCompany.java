@@ -52,16 +52,16 @@ public final class SodirCompany extends SodirObject
    * @param isFormerLicenseLicensee   Is company former license licensee?
    */
   SodirCompany(String npdId,
-             String name,
-             String organizationNumber,
-             String shortName,
-             String nationCode,
-             String surveyPrefix,
-             boolean isCurrentLicenseOperator,
-             boolean isFormerLicenseOperator,
-             boolean isCurrentLicenseLicensee,
-             boolean isFormerLicenseLicensee,
-             Date syncDate)
+               String name,
+               String organizationNumber,
+               String shortName,
+               String nationCode,
+               String surveyPrefix,
+               boolean isCurrentLicenseOperator,
+               boolean isFormerLicenseOperator,
+               boolean isCurrentLicenseLicensee,
+               boolean isFormerLicenseLicensee,
+               Date syncDate)
   {
     super("company", npdId, name, null, null, null, syncDate);
 

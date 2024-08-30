@@ -12,6 +12,10 @@ JavaPackages = \
         no/geosoft/sodir/survey \
         no/geosoft/sodir/well \
 
+JavaLibraries = \
+	javax.json-1.1.3.jar \
+	javax.json-api-1.1.3.jar \
+
 JavadocPackages = -subpackages no
 JavadocImage    = http://geosoft.no/images/NpdIoBox.250.png
 

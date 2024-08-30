@@ -1,7 +1,7 @@
-# sodir - Sodir (Sokkeldirektoratet) access library
+# sodir - Sokkeldirektoratet access library
 
 The sodir module is a library for reading information from the
-Sokkeldirektoratet (Sodir) (Norwegian Offshore Directorate) public fact pages.
+Sokkeldirektoratet (Sodir) (= Norwegian Offshore Directorate) public fact pages.
 
 
 ### Setup
