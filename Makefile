@@ -6,10 +6,12 @@ JavaPackages = \
         no/geosoft/sodir/discovery \
         no/geosoft/sodir/facility \
         no/geosoft/sodir/field \
+        no/geosoft/sodir/json \
         no/geosoft/sodir/license \
         no/geosoft/sodir/pipeline \
         no/geosoft/sodir/stratigraphy \
         no/geosoft/sodir/survey \
+        no/geosoft/sodir/web \
         no/geosoft/sodir/well \
 
 JavaLibraries = \

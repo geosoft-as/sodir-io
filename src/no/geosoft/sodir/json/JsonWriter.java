@@ -10,6 +10,7 @@ import java.io.Writer;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -28,6 +29,12 @@ import javax.json.stream.JsonGenerator;
 
 import no.geosoft.sodir.SodirObject;
 import no.geosoft.sodir.company.SodirCompany;
+import no.geosoft.sodir.field.SodirField;
+import no.geosoft.sodir.license.SodirLicense;
+import no.geosoft.sodir.well.SodirWellbore;
+import no.geosoft.sodir.well.SodirExplorationWellbore;
+import no.geosoft.sodir.well.SodirDevelopmentWellbore;
+import no.geosoft.sodir.well.SodirOtherWellbore;
 
 /**
  * Class for writing Sodir instances as JSON.
@@ -178,13 +185,65 @@ public final class JsonWriter
       objectBuilder.addNull(key);
   }
 
-  private static void add(JsonObjectBuilder objectBuilder, SodirObject sodirObject)
+  /**
+   * Add entry of the specified key/value to the given object builder.
+   *
+   * @param objectBuilder  Object builder to add to. Non-null.
+   * @param key            Key of entry to add. Non-null.
+   * @param value          Value of key. May be null, in case "null" is added.
+   */
+  private static void add(JsonObjectBuilder objectBuilder, String key, Date value)
   {
+    assert objectBuilder != null : "objectBuilder cannot be null";
+    assert key != null : "key cannot be null";
+
+    if (value != null)
+      objectBuilder.add(key, ISO8601DateParser.toString(value));
+    else
+      objectBuilder.addNull(key);
+  }
+
+  /**
+   * Add entry of the specified key/value to the given object builder.
+   *
+   * @param objectBuilder  Object builder to add to. Non-null.
+   * @param key            Key of entry to add. Non-null.
+   * @param value          Value of key. May be null, in case "null" is added.
+   */
+  private static void add(JsonObjectBuilder objectBuilder, String key, Double value)
+  {
+    assert objectBuilder != null : "objectBuilder cannot be null";
+    assert key != null : "key cannot be null";
+
+    if (value != null)
+      objectBuilder.add(key, value);
+    else
+      objectBuilder.addNull(key);
+  }
+
+  private static JsonObjectBuilder getSodirObject(SodirObject sodirObject)
+  {
+    if (sodirObject == null)
+      throw new IllegalArgumentException("sodirObject cannot be null");
+
+    JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
     add(objectBuilder, "type", sodirObject.getType());
     add(objectBuilder, "name", sodirObject.getName());
     add(objectBuilder, "id", sodirObject.getNpdId());
-    add(objectBuilder, "factPageUrl", sodirObject.getFactPageUrl());
-    add(objectBuilder, "factMapUrl", sodirObject.getFactMapUrl());
+
+    return objectBuilder;
+  }
+
+  public static JsonArrayBuilder getSodirObjects(Collection<? extends SodirObject> sodirObjects)
+  {
+    if (sodirObjects == null)
+      throw new IllegalArgumentException("sodirObjects cannot be null");
+
+    JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+    for (SodirObject sodirObject : sodirObjects)
+      arrayBuilder.add(getSodirObject(sodirObject));
+
+    return arrayBuilder;
   }
 
   /**
@@ -202,6 +261,7 @@ public final class JsonWriter
     JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
     add(objectBuilder, "name", company.getName());
     add(objectBuilder, "id", company.getNpdId());
+
     add(objectBuilder, "organizationNumber", company.getOrganizationNumber());
     add(objectBuilder, "shortName", company.getShortName());
     add(objectBuilder, "nationCode", company.getNationCode());
@@ -214,15 +274,65 @@ public final class JsonWriter
     return objectBuilder;
   }
 
-  public static JsonArrayBuilder getCompanies(Collection<SodirCompany> companies)
+  public static JsonObjectBuilder getField(SodirField field)
   {
-    if (companies == null)
-      throw new IllegalArgumentException("companies cannot be null");
+    if (field == null)
+      throw new IllegalArgumentException("field cannot be null");
 
-    JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-    for (SodirCompany company : companies)
-      arrayBuilder.add(getCompany(company));
+    JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+    add(objectBuilder, "name", field.getName());
+    add(objectBuilder, "id", field.getNpdId());
 
-    return arrayBuilder;
+    add(objectBuilder, "operatorName", field.getOperatorName());
+    add(objectBuilder, "activityStatus", field.getActivityStatus());
+    add(objectBuilder, "discoveryWellboreName", field.getDiscoveryWellboreName());
+    add(objectBuilder, "discoveryWellboreCompletionDate", field.getDiscoveryWellboreCompletionDate());
+    add(objectBuilder, "mainArea", field.getMainArea());
+    add(objectBuilder, "ownerKind", field.getOwnerKind());
+    add(objectBuilder, "ownerName", field.getOwnerName());
+    add(objectBuilder, "mainSupplyBase", field.getMainSupplyBase());
+    add(objectBuilder, "hydrocarbonType", field.getHydrocarbonType());
+    add(objectBuilder, "idOwner", field.getNpdidOwner());
+    add(objectBuilder, "idDiscoveryWellbore", field.getNpdidDiscoveryWellbore());
+    add(objectBuilder, "idOperator", field.getNpdidOperator());
+
+    return objectBuilder;
+  }
+
+  public static JsonObjectBuilder getLicense(SodirLicense license)
+  {
+    if (license == null)
+      throw new IllegalArgumentException("license cannot be null");
+
+    JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+    add(objectBuilder, "name", license.getName());
+    add(objectBuilder, "id", license.getNpdId());
+
+    add(objectBuilder, "activity", license.getActivity());
+    add(objectBuilder, "mainArea", license.getMainArea());
+    add(objectBuilder, "status", license.getStatus());
+    add(objectBuilder, "stratigraphical", license.getStratigraphical());
+    add(objectBuilder, "dateGranted", license.getDateGranted());
+    add(objectBuilder, "validToDate", license.getValidToDate());
+    add(objectBuilder, "originalArea", license.getOriginalArea());
+    add(objectBuilder, "currentArea", license.getCurrentArea());
+    add(objectBuilder, "phase", license.getPhase());
+
+    return objectBuilder;
+  }
+
+  public static JsonObjectBuilder getWellbore(SodirWellbore wellbore)
+  {
+    if (wellbore == null)
+      throw new IllegalArgumentException("wellbore cannot be null");
+
+    JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+    add(objectBuilder, "name", wellbore.getName());
+    add(objectBuilder, "id", wellbore.getNpdId());
+
+    add(objectBuilder, "wellName", wellbore.getWellName());
+    add(objectBuilder, "drillingOperator", wellbore.getDrillingOperator());
+
+    return objectBuilder;
   }
 }

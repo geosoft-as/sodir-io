@@ -1,4 +1,5 @@
 Source = \
+	ISO8601DateParser.java \
 	JsonWriter.java \
 
 Main = JsonWriter
