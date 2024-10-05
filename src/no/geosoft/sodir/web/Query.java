@@ -81,8 +81,8 @@ public final class Query
   /**
    * Return value for the specified key as a string.
    *
-   * @param key           Key to consider. Non-null.
-   * @return              Value of key, or null if key is not present.
+   * @param key  Key to consider. Non-null.
+   * @return     Value of key, or null if key is not present.
    * @throws IllegalArgumentException  If key is null.
    */
   public String getString(String key)
