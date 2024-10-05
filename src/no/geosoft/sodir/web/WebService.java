@@ -155,27 +155,36 @@ public final class WebService
       //
       // Companies
       //
-      if (path.equals("/companies")) {
+      else if (path.equals("/companies")) {
         text = webService_.getCompanies(null);
       }
 
       //
       // Company
       //
-      if (path.equals("/company")) {
+      else if (path.equals("/company")) {
         String companyId = query.getString("id");
 
         if (companyId == null) {
           status = HttpServletResponse.SC_BAD_REQUEST;
-          errorMessage = "Invalid query";
+          errorMessage = "Bad request";
         }
 
         else {
           text = webService_.getCompany(companyId);
           if (text == null) {
-            status = HttpServletResponse.SC_BAD_REQUEST;
+            status = HttpServletResponse.SC_NOT_FOUND;
+            errorMessage = "Not found: id=" + companyId;
           }
         }
+      }
+
+      //
+      // Non-supported path
+      //
+      else {
+        status = HttpServletResponse.SC_BAD_REQUEST;
+        errorMessage = "Bad request";
       }
 
       response.setCharacterEncoding("UTF-8");
