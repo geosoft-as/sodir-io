@@ -3,6 +3,7 @@
 The Sodir I/O module is a library for providing programatic access to the
 Norwegian Offshore Directorate public fact pages.
 
+![Sodir I/O](https://geosoft.no/images/sodirio_box.png "")
 
 ### Setup
 
