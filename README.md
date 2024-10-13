@@ -23,7 +23,7 @@ Sodir I/O has no external dependencies.
 
 ### Javadoc
 
-Full Javadoc documentation is available [here](https://geosoft-as.github.io/sodir-io/docs/index.html).
+Full JavaDoc documentation is available [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/geosoft-as/sodir-io/main/docs/index.html).
 
 
 
