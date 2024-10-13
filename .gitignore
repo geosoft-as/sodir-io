@@ -18,7 +18,7 @@ testreports/
 #
 # Derived content
 #
-NpdIo.jar
+sodir-io.jar
 /obj/
 /objtest/
 /docs/
