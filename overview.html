@@ -8,46 +8,47 @@ Add
 
 and change border to
 "border: 1px solid #cccccc"
-
 -->
 
 <body>
 
-The GeoSoft NPD I/O module is a Java library for accessing data from the
-Norwegian Petroleum Directorate (NPD)
-<a href="http://factpages.npd.no/factpages/">fact pages</a>.
+The Sodir I/O module is a Java library for providing programatic access to the
+Norwegian Offshore Directorate public
+<a href="https://factpages.sodir.no/">fact pages</a>.
+
+<center><img vspace=20 src=http://geosoft.no/images/sodirio_box.png width="300"></center>
 
 <p>
-The NPD FactPages contain information regarding the petroleum activities on the
+The Sodir FactPages contain information regarding the petroleum activities on the
 Norwegian continental shelf.
-The information is synchronised with the NPD's databases on a daily basis.
+The information is synchronised with the Sodir databases on a daily basis.
 
 <p>
 A coding example is shown below:
 
-<!-- Copy from npdio.html -->
-<pre style='background-color: #ffffee; text-align: left; border: 1px solid #cccccc; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>import</span> no.geosoft.npdio.well.*;
-<span style='font-weight:bold;color:#7B0052;'>import</span> no.geosoft.npdio.field.*;
+<!-- Copy from sodioio.html -->
+<pre style='background-color: #ffffee; text-align:left; border:1px solid #cccccc; line-height:18px; padding:15px; font-size:13px; font-family:Courier New,Courier,monospace; overflow:auto;'><span style='font-weight:bold;color:#7B0052;'>import</span> no.geosoft.sodirio.well.*;
+<span style='font-weight:bold;color:#7B0052;'>import</span> no.geosoft.sodirio.field.*;
 :
 
 <span style='color:#3F7F5F'>//
-</span><span style='color:#3F7F5F'>// Read all NPD development wellbores
+</span><span style='color:#3F7F5F'>// Read all Sodir development wellbores
 </span><span style='color:#3F7F5F'>//
-</span>List&lt;NpdWellbore&gt; wellbores = NpdDevelopmentWellboreReader.readAll();
+</span>List&lt;SodirWellbore&gt; wellbores = SodirDevelopmentWellboreReader.readAll();
 
 <span style='color:#3F7F5F'>// Loop over the wellbores and write to console
-</span><span style='font-weight:bold;color:#7B0052;'>for</span> (NpdWellbore wellbore : wellbores)
+</span><span style='font-weight:bold;color:#7B0052;'>for</span> (SodirWellbore wellbore : wellbores)
   System.out.println(wellbore);
 
 :
 
 <span style='color:#3F7F5F'>//
-</span><span style='color:#3F7F5F'>// Read all NPD fields
+</span><span style='color:#3F7F5F'>// Read all Sodir fields
 </span><span style='color:#3F7F5F'>//
-</span>List&lt;NpdField&gt; fields = NpdFieldReader.readAll();
+</span>List&lt;SodirField&gt; fields = SodirFieldReader.readAll();
 
 <span style='color:#3F7F5F'>// Loop over the fields and load production data for each and write to console
-</span><span style='font-weight:bold;color:#7B0052;'>for</span> (NpdField field : fields) <span style='font-weight:bold;color:#D3171B'>{</span>
+</span><span style='font-weight:bold;color:#7B0052;'>for</span> (SodirField field : fields) <span style='font-weight:bold;color:#D3171B'>{</span>
 
   System.out.println(field.getName());
 
@@ -66,18 +67,16 @@ A coding example is shown below:
 
 :</pre>
 
-
-
 <p>
-NPD I/O access data through HTTPS.
+Sodir I/O access data through HTTPS.
 As the URL for each data type may change over time,
 they can be provided by the client for flexibility.
 
 <p>
-As of October 2019 the correct URLs for each NPD data type is as follows:
+As of October 2024 the correct URLs for each Sodir data type is as follows:
 
-<p>
-<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0">
+<table class="overviewSummary" style="order:0; padding:3; spacing:0;">
+<caption>&nbsp;</caption>
 <tr>
 <th class="colFirst" scope="col">Data type</th>
 <th class="colLast" scope="col">URL</th>
@@ -85,63 +84,94 @@ As of October 2019 the correct URLs for each NPD data type is as follows:
 <tbody>
 
 <tr class="altColor">
-<td class="colFirst"><tt><b>NpdCompany</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirCompany</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/company&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="rowColor">
-<td class="colFirst"><tt><b>NpdDevelopmentWellbore</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirDevelopmentWellbore</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/wellbore_development_all&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="altColor">
-<td class="colFirst"><tt><b>NpdDiscovery</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/discovery&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirDiscovery</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/discovery&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="rowColor">
-<td class="colFirst"><tt><b>NpdExplorationWellbore</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirExplorationWellbore</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/wellbore_exploration_all&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="altColor">
-<td class="colFirst"><tt><b>NpdField</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirField</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/field&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="rowColor">
-<td class="colFirst"><tt><b>NpdFixedFacility</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirFixedFacility</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/facility_fixed&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="altColor">
-<td class="colFirst"><tt><b>NpdLicense</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirLicense</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/licence&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="rowColor">
-<td class="colFirst"><tt><b>NpdMoveableFacility</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirMoveableFacility</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/facility_moveable&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="altColor">
-<td class="colFirst"><tt><b>NpdOtherWellbore</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirOtherWellbore</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/wellbore_other_all&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false";
+</code></td>
 </tr>
 
 <tr class="rowColor">
-<td class="colFirst"><tt><b>NpdPipeline</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/tuf_pipeline_overview&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirPipeline</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/tuf_pipeline_overview&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false";
+</code></td>
 </tr>
 
 <tr class="altColor">
-<td class="colFirst"><tt><b>NpdProduction</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirProduction</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/field_production_monthly&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
+</tr>
+
+<tr class="altColor">
+<td class="colFirst"><code><b>SodirStratigraphy</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/strat_litho_wellbore&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 <tr class="rowColor">
-<td class="colFirst"><tt><b>NpdSurvey</b></tt></td>
-<td class="colLast"><tt>https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en</tt></td>
+<td class="colFirst"><code><b>SodirSurvey</b></code></td>
+<td class="colLast"><code>
+https://factpages.sodir.no/public?/Factpages/external/tableview/survey&amp;rs:Command=Render&amp;rc:Toolbar=false&amp;rc:Parameters=f&amp;IpAddress=not_used&amp;CultureCode=en&amp;rs:Format=CSV&amp;Top100=false
+</code></td>
 </tr>
 
 </tbody>

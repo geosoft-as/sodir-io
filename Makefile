@@ -13,6 +13,5 @@ JavaPackages = \
         no/geosoft/sodirio/well \
 
 JavadocPackages = -subpackages no
-JavadocImage    = http://geosoft.no/images/sodirio_box.png
 
 include $(DEV_HOME)/tools/Make/Makefile

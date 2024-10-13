@@ -26,23 +26,49 @@ import java.util.logging.Level;
 public abstract class SodirReader<T>
 {
   /**
-   * As per summer 2024 these are the URLs to the Sodir gact pages for each supported data type.
+   * As per Q4/2024 these are the URLs to the Sodir fact pages for each supported data type.
    * Historically, these URLs tends to change, so clients that depends on these strings needs
    * a recompiled version of the Sodir library every time they do. It is therefore adviced to keep
    * this information in the client code instead. All APIs accept the URL as a public input argument.
    */
+
+  /** Company URL. */
   public static final String COMPANY_URL              = "https://factpages.sodir.no/public?/Factpages/external/tableview/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Development wellbore URL. */
   public static final String DEVELOPMENT_WELLBORE_URL = "https://factpages.sodir.no/public?/Factpages/external/tableview/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Discovery URL. */
   public static final String DISCOVERY_URL            = "https://factpages.sodir.no/public?/Factpages/external/tableview/discovery&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Exploration wellbore URL. */
   public static final String EXPLORATION_WELLBORE_URL = "https://factpages.sodir.no/public?/Factpages/external/tableview/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Field URL. */
   public static final String FIELD_URL                = "https://factpages.sodir.no/public?/Factpages/external/tableview/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Fixed facility URL. */
   public static final String FIXED_FACILITY_URL       = "https://factpages.sodir.no/public?/Factpages/external/tableview/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** License URL. */
   public static final String LICENSE_URL              = "https://factpages.sodir.no/public?/Factpages/external/tableview/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Moveable facility URL. */
   public static final String MOVEABLE_FACILITY_URL    = "https://factpages.sodir.no/public?/Factpages/external/tableview/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Other wellbore URL. */
   public static final String OTHER_WELLBORE_URL       = "https://factpages.sodir.no/public?/Factpages/external/tableview/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Pipeline URL. */
   public static final String PIPELINE_URL             = "https://factpages.sodir.no/public?/Factpages/external/tableview/tuf_pipeline_overview&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Production URL. */
   public static final String PRODUCTION_URL           = "https://factpages.sodir.no/public?/Factpages/external/tableview/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Stratigraphy URL. */
   public static final String STRATIGRAPHY_URL         = "https://factpages.sodir.no/public?/Factpages/external/tableview/strat_litho_wellbore&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+  /** Survey URL. */
   public static final String SURVEY_URL               = "https://factpages.sodir.no/public?/Factpages/external/tableview/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
 
   /** Sodir date format description */

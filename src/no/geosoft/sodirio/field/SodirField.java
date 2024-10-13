@@ -227,6 +227,14 @@ public final class SodirField extends SodirObject
     return mainSupplyBase_;
   }
 
+  /**
+   * Return the hydrocarbon type of this field.
+   * <p>
+   * <b>Sodir description:</b><br>
+   * TODO
+   *
+   * @return  The hydrocarbon type of this field.
+   */
   public String getHydrocarbonType()
   {
     return hydrocarbonType_;

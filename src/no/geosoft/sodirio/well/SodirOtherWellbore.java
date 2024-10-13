@@ -187,6 +187,14 @@ public final class SodirOtherWellbore extends SodirWellbore
     return seismicLocation_;
   }
 
+  /**
+   * Return alias of this wellbore.
+   * <p>
+   * <b>Sodir description:</b><br>
+   * TODO
+   *
+   * @return  Alias of this wellbore.
+   */
   public String getAlias()
   {
     return alias_;

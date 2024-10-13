@@ -1,7 +1,7 @@
-# sodir - Sokkeldirektoratet access library
+# Sodir I/O - Norwegian Offshore Directorate (Sodir) access library
 
-The sodir module is a library for reading information from the
-Sokkeldirektoratet (Sodir) (= Norwegian Offshore Directorate) public fact pages.
+The Sodir I/O module is a library for providing programatic access to the
+Norwegian Offshore Directorate public fact pages.
 
 
 ### Setup
@@ -9,30 +9,20 @@ Sokkeldirektoratet (Sodir) (= Norwegian Offshore Directorate) public fact pages.
 Capture the Sodir code to local disk by:
 
 ```
-$ git clone git@github.com:geosoft-as/sodir.git
+$ git clone git@github.com:geosoft-as/sodir-io.git
 ```
 
 
 
 ### Dependencies
 
-Sodir has no external dependencies.
+Sodir I/O has no external dependencies.
 
 
 
-### Building Sodir
+### Javadoc
 
-Sodir can be built from its root folder by
-
-```
-$ make clean
-$ make
-$ make jar
-```
-
-The Sodir delivery will be the `./lib/sodir.jar` file.
-
-Building with make require the make module containing the main Makefile.
+Full Javadoc documentation is available [here](docs/index.html).
 
 
 

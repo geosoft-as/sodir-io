@@ -7,7 +7,6 @@ nbproject/
 # IntelliJ
 #
 .idea/
-cc.iml
 out/
 
 #
@@ -21,10 +20,8 @@ testreports/
 sodir-io.jar
 /obj/
 /objtest/
-/docs/
 /build/
 /dist/
-.DS_Store
 
 #
 # Temporary files
