@@ -19,17 +19,25 @@ public final class SodirCompanyReader extends SodirReader<SodirCompany>
   /**
    * The company properties and their order is as follows:
    *
-   *   cmpLongName
-   *   cmpOrgNumberBrReg
-   *   cmpShortName
-   *   cmpNationCode
-   *   cmpSurveyPrefix
-   *   cmpNpdidCompany
-   *   cmpLicenceOperCurrent
-   *   cmpLicenceOperFormer
-   *   cmpLicenceLicenseeCurrent
-   *   cmpLicenceLicenseeFormer
-   *   dateSyncNPD
+   * cmpLongName,
+   * cmpOrgNumberBrReg,
+   * cmpShortName,
+   * cmpNationCode,
+   * cmpSurveyPrefix,
+   * cmpNpdidCompany,
+   * cmpLicenceOperCurrent,
+   * cmpLicenceOperFormer,
+   * cmpLicenceLicenseeCurrent,
+   * cmpLicenceLicenseeFormer,
+   * cmpTufOperCurrent,
+   * cmpTufOperFormer,
+   * cmpTufPartnerCurrent,
+   * cmpTufPartnerFormer,
+   * cmpBsnsArrAreaOperCurrent,
+   * cmpBsnsArrAreaOperFormer,
+   * cmpBsnsArrAreaPartnerCurrent,
+   * cmpBsnsArrAreaPartnerFormer,
+   * dateSyncNPD
    */
   private static final int NAME_INDEX = 0;
   private static final int ORGANIZATION_NUMBER_INDEX = 1;
@@ -41,7 +49,15 @@ public final class SodirCompanyReader extends SodirReader<SodirCompany>
   private static final int IS_FORMER_LICENSE_OPERATOR_INDEX = 7;
   private static final int IS_CURRENT_LICENSE_LICENSEE_INDEX = 8;
   private static final int IS_FORMER_LICENSE_LICENSEE_INDEX = 9;
-  private static final int DATE_SYNCED_INDEX = 10;
+  private static final int IS_CURRENT_TUF_OPERATOR_INDEX = 10;
+  private static final int IS_FORMER_TUF_OPERATOR_INDEX = 11;
+  private static final int IS_CURRENT_TUF_PARTNER_INDEX = 12;
+  private static final int IS_FORMER_TUF_PARTNER_INDEX = 13;
+  private static final int IS_CURRENT_BUSINESS_ARRANGEMENT_OPERATOR_INDEX = 14;
+  private static final int IS_FORMER_BUSINESS_ARRANGEMENT_OPERATOR_INDEX = 15;
+  private static final int IS_CURRENT_BUSINESS_ARRANGEMENT_PARTNER_INDEX = 16;
+  private static final int IS_FORMER_BUSINESS_ARRANGEMENT_PARTNER_INDEX = 17;
+  private static final int DATE_SYNCED_INDEX = 18;
 
   /**
    * Create a reader for Sodir companies.
@@ -81,7 +97,7 @@ public final class SodirCompanyReader extends SodirReader<SodirCompany>
   {
     assert tokens != null : "tokens cannot be null";
 
-    if (tokens.length != 11)
+    if (tokens.length != 19)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
     String npdId = tokens[NPDID_INDEX];
@@ -94,6 +110,14 @@ public final class SodirCompanyReader extends SodirReader<SodirCompany>
     boolean isFormerLicenseOperator = parseBoolean(tokens[IS_FORMER_LICENSE_OPERATOR_INDEX]);
     boolean isCurrentLicenseLicensee = parseBoolean(tokens[IS_CURRENT_LICENSE_LICENSEE_INDEX]);
     boolean isFormerLicenseLicensee = parseBoolean(tokens[IS_FORMER_LICENSE_LICENSEE_INDEX]);
+    boolean isCurrentTufOperator = parseBoolean(tokens[IS_CURRENT_TUF_OPERATOR_INDEX]);
+    boolean isFormerTufOperator = parseBoolean(tokens[IS_FORMER_TUF_OPERATOR_INDEX]);
+    boolean isCurrentTufPartner = parseBoolean(tokens[IS_CURRENT_TUF_PARTNER_INDEX]);
+    boolean isFormerTufPartner = parseBoolean(tokens[IS_FORMER_TUF_PARTNER_INDEX]);
+    boolean isCurrentBunsinessArrangementOperator = parseBoolean(tokens[IS_CURRENT_BUSINESS_ARRANGEMENT_OPERATOR_INDEX]);
+    boolean isFormerBunsinessArrangementOperator = parseBoolean(tokens[IS_FORMER_BUSINESS_ARRANGEMENT_OPERATOR_INDEX]);
+    boolean isCurrentBunsinessArrangementPartner = parseBoolean(tokens[IS_CURRENT_BUSINESS_ARRANGEMENT_PARTNER_INDEX]);
+    boolean isFormerBunsinessArrangementPartner = parseBoolean(tokens[IS_FORMER_BUSINESS_ARRANGEMENT_PARTNER_INDEX]);
     Date syncDate = parseDate(tokens[DATE_SYNCED_INDEX]);
 
     return new SodirCompany(npdId,
@@ -106,6 +130,14 @@ public final class SodirCompanyReader extends SodirReader<SodirCompany>
                             isFormerLicenseOperator,
                             isCurrentLicenseLicensee,
                             isFormerLicenseLicensee,
+                            isCurrentTufOperator,
+                            isFormerTufOperator,
+                            isCurrentTufPartner,
+                            isFormerTufPartner,
+                            isCurrentBunsinessArrangementOperator,
+                            isFormerBunsinessArrangementOperator,
+                            isCurrentBunsinessArrangementPartner,
+                            isFormerBunsinessArrangementPartner,
                             syncDate);
   }
 
