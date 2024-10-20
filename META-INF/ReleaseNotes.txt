@@ -1,23 +1,2 @@
-1.06 07.10.2019
-o Tuned data model for surveys, moveable facilities and wellbores according to changes in the NPD public database
-
-1.05 02.05.2016
-o Tuned data model for fields, licenses and other wellbores according to changes in the NPD public database
-o Handle changes in the NPD public database for exploration and development wellbores
-
-1.04 11.12.2015
-o Support data type "survey data"
-
-1.03 23.07.2015
-o Support data type "facility"
-
-1.02 18.06.2015
-o Fix problem with reading absent values
-o Support data type "license"
-
-1.01 09.06.2015
-o Support data type "company"
-o Support data type "field"
-
-1.00 04.06.2015
-o Extracted from Log Studio as separate library
+1.00 01.10.2024
+o Initial version, created from the open source NPD I/O library from Petroware
