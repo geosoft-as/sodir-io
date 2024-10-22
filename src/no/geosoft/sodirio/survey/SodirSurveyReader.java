@@ -41,6 +41,7 @@ public final class SodirSurveyReader extends SodirReader<SodirSurvey>
    *   seaSampling
    *   seaShallowDrilling
    *   seaGeotechnical
+   *   seaLawCategory
    *   seaFactPageUrl
    *   seaFactMapHtml5Url
    *   datesyncNPD
@@ -67,9 +68,10 @@ public final class SodirSurveyReader extends SodirReader<SodirSurvey>
   private static final int IS_SAMPLING_DONE_INDEX = 19;
   private static final int IS_SHALLOW_DRILLING_DONE_INDEX = 20;
   private static final int IS_GEOTECHNICAL_MEASUREMENT_DONE_INDEX = 21;
-  private static final int FACT_PAGE_URL_INDEX = 22;
-  private static final int FACT_MAP_URL_INDEX = 23;
-  private static final int DATE_SYNCED_INDEX = 24;
+  private static final int LEGAL_BASIS_INDEX = 22;
+  private static final int FACT_PAGE_URL_INDEX = 23;
+  private static final int FACT_MAP_URL_INDEX = 24;
+  private static final int DATE_SYNCED_INDEX = 25;
 
   /**
    * Create a reader for Sodir surveys.
@@ -109,7 +111,7 @@ public final class SodirSurveyReader extends SodirReader<SodirSurvey>
   {
     assert tokens != null : "tokens cannot be null";
 
-    if (tokens.length != 25)
+    if (tokens.length != 26)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
     String name = tokens[NAME_INDEX];
@@ -134,6 +136,7 @@ public final class SodirSurveyReader extends SodirReader<SodirSurvey>
     Boolean isSamplingDone = parseBoolean(tokens[IS_SAMPLING_DONE_INDEX]);
     Boolean isShallowDrillingDone = parseBoolean(tokens[IS_SHALLOW_DRILLING_DONE_INDEX]);
     Boolean isGeotechnicalMeasurementDone = parseBoolean(tokens[IS_GEOTECHNICAL_MEASUREMENT_DONE_INDEX]);
+    String legalBasis = tokens[LEGAL_BASIS_INDEX];
     String factPageUrl = tokens[FACT_PAGE_URL_INDEX];
     String factMapUrl = tokens[FACT_MAP_URL_INDEX];
     Date syncDate = parseDate(tokens[DATE_SYNCED_INDEX]);
@@ -160,6 +163,7 @@ public final class SodirSurveyReader extends SodirReader<SodirSurvey>
                            isSamplingDone,
                            isShallowDrillingDone,
                            isGeotechnicalMeasurementDone,
+                           legalBasis,
                            factPageUrl,
                            factMapUrl,
                            syncDate);

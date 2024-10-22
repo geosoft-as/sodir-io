@@ -73,6 +73,9 @@ public final class SodirSurvey extends SodirObject
   /** Has geotechnical measurement been performed? Null if N/A or unknown. */;
   private final Boolean isGeotechnicalMeasurementDone_;
 
+  /** Legal basis the survey is given according to. */
+  private final String legalBasis_;
+
   /**
    * Create a Sodir survey instance.
    */
@@ -98,6 +101,7 @@ public final class SodirSurvey extends SodirObject
               Boolean isSamplingDone,
               Boolean isShallowDrillingDone,
               Boolean isGeotechnicalMeasurementDone,
+              String legalBasis,
               String factPageUrl,
               String factMapUrl,
               Date syncDate)
@@ -124,6 +128,7 @@ public final class SodirSurvey extends SodirObject
     isSamplingDone_ = isSamplingDone;
     isShallowDrillingDone_ = isShallowDrillingDone;
     isGeotechnicalMeasurementDone_ = isGeotechnicalMeasurementDone;
+    legalBasis_ = legalBasis;
   }
 
   /**
@@ -475,5 +480,20 @@ public final class SodirSurvey extends SodirObject
   public Boolean isGeotechnicalMeasurementDone()
   {
     return isGeotechnicalMeasurementDone_;
+  }
+
+  /**
+   * Return the legal basis the survey is given according to.
+   * <p>
+   * <b>Sodir description:</b><br>
+   * Legal basis the survey is given according to.
+   * <p>
+   * varchar(255), corresponds to Sodir property <em>seaLawCategory</em>.
+   *
+   * @return  The legal basis the survey is given according to.
+   */
+  public String getLegalBasis()
+  {
+    return legalBasis_;
   }
 }
