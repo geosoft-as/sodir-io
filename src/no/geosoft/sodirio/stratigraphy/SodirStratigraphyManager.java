@@ -130,13 +130,13 @@ public final class SodirStratigraphyManager
   /**
    * Return a SodirWellboreStratigraphy instance with a specific wellbore id.
    *
-   * @param npdId Wellbore NPDID of a SodirStratigraphy instance.
+   * @param id  Wellbore Sodir ID of a SodirStratigraphy instance.
    * @return SodirWellboreStratigraphy instance with a specific wellbore id. Null if not found.
    */
-  public SodirWellboreStratigraphy getWellboreStratigraphy(int npdId)
+  public SodirWellboreStratigraphy getWellboreStratigraphy(int id)
   {
     for(SodirWellboreStratigraphy wellbore : wellboreStratigraphy_) {
-      if (wellbore.getWellboreNpdId() == npdId)
+      if (wellbore.getWellboreId() == id)
         return wellbore;
     }
 

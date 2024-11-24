@@ -18,7 +18,7 @@ public final class SodirOtherWellbore extends SodirWellbore
   /**
    * Create Sodir <em>other</em> wellbore instance.
    */
-  SodirOtherWellbore(String npdId,
+  SodirOtherWellbore(String id,
                      String name,
                      String wellName,
                      String drillingOperator,
@@ -50,7 +50,7 @@ public final class SodirOtherWellbore extends SodirWellbore
                      Integer completionYear,
                      String reclassFromWellbore,
                      String siteSurvey,
-                     String npdidSiteSurvey,
+                     String idSiteSurvey,
                      Date pluggedAndAbandonDate,
                      Date pluggedDate,
                      String licenseTargetName,
@@ -80,13 +80,13 @@ public final class SodirOtherWellbore extends SodirWellbore
                      String alias,
                      String diskosWellboreType,
                      String diskosWellboreParent,
-                     String npdidDiscovery,
-                     String npdidField,
+                     String idDiscovery,
+                     String idField,
                      Date wdssQcDate,
                      Date releaseDate,
-                     String npdidProductionLicense,
-                     String npdidFacilityDrilling,
-                     String npdidWellboreReclass,
+                     String idProductionLicense,
+                     String idFacilityDrilling,
+                     String idWellboreReclass,
                      Date mainLevelUpdatedDate,
                      Date updatedDate,
                      Date syncDate,
@@ -95,7 +95,7 @@ public final class SodirOtherWellbore extends SodirWellbore
                      String seismicLocation)
   {
     super("wellbore_development", // Yes, development, used to point to the correct url at Sodir
-          npdId,
+          id,
           name,
           wellName,
           drillingOperator,
@@ -128,7 +128,7 @@ public final class SodirOtherWellbore extends SodirWellbore
           reclassFromWellbore,
           null, // reclassificationDate
           siteSurvey,
-          npdidSiteSurvey,
+          idSiteSurvey,
           pluggedAndAbandonDate,
           pluggedDate,
           licenseTargetName,
@@ -157,13 +157,13 @@ public final class SodirOtherWellbore extends SodirWellbore
           factMapUrl,
           diskosWellboreType,
           diskosWellboreParent,
-          npdidDiscovery,
-          npdidField,
+          idDiscovery,
+          idField,
           wdssQcDate,
           releaseDate,
-          npdidProductionLicense,
-          npdidFacilityDrilling,
-          npdidWellboreReclass,
+          idProductionLicense,
+          idFacilityDrilling,
+          idWellboreReclass,
           mainLevelUpdatedDate,
           updatedDate,
           syncDate);

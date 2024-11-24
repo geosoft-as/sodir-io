@@ -46,7 +46,7 @@ public final class SodirFixedFacility extends SodirFacility
   /**
    * Create a Sodir fixed facility.
    */
-  SodirFixedFacility(String npdId,
+  SodirFixedFacility(String id,
                      String name,
                      String kind,
                      String functions,
@@ -72,7 +72,7 @@ public final class SodirFixedFacility extends SodirFacility
                      Date lastChangedDate,
                      Date syncDate)
   {
-    super("facility_fixed", npdId, name, kind, functions, nation, factPageUrl, factMapUrl, lastChangedDate, syncDate);
+    super("facility_fixed", id, name, kind, functions, nation, factPageUrl, factMapUrl, lastChangedDate, syncDate);
 
     phase_ = phase;
     isSurfaceFacility_ = isSurfaceFacility;

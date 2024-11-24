@@ -64,7 +64,7 @@ public final class SodirCompany extends SodirObject
   /**
    * Create an Sodir company instance.
    *
-   * @param npdId                                     Sodir ID. Non-null.
+   * @param id                                        Sodir ID. Non-null.
    * @param name                                      Company name. Non-null.
    * @param organizationNumber                        Organization number. Null if N/A.
    * @param shortName                                 Company short name. Null if N/A.
@@ -83,7 +83,7 @@ public final class SodirCompany extends SodirObject
    * @param isCurrentBusinessArrangementAreaPartner   Is company current business arrangement area partner?
    * @param isFormerBusinessArrangementAreaPartner    Is company former business arrangement area partner?
    */
-  SodirCompany(String npdId,
+  SodirCompany(String id,
                String name,
                String organizationNumber,
                String shortName,
@@ -103,7 +103,7 @@ public final class SodirCompany extends SodirObject
                boolean isFormerBusinessArrangementAreaPartner,
                Date syncDate)
   {
-    super("company", npdId, name, null, null, null, syncDate);
+    super("company", id, name, null, null, null, syncDate);
 
     organizationNumber_ = organizationNumber;
     shortName_ = shortName;

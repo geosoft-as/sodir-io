@@ -48,7 +48,7 @@ public final class SodirSurveyReader extends SodirReader<SodirSurvey>
    */
   private static final int NAME_INDEX = 0;
   private static final int PLANNED_START_DATE_INDEX = 1;
-  private static final int NPDID_INDEX = 2;
+  private static final int ID_INDEX = 2;
   private static final int STATUS_INDEX = 3;
   private static final int AREA_INDEX = 4;
   private static final int MIDPOINT_INDEX = 5;
@@ -116,7 +116,7 @@ public final class SodirSurveyReader extends SodirReader<SodirSurvey>
 
     String name = tokens[NAME_INDEX];
     Date plannedStartDate = parseDate(tokens[PLANNED_START_DATE_INDEX]);
-    String npdId = tokens[NPDID_INDEX];
+    String id = tokens[ID_INDEX];
     String status = tokens[STATUS_INDEX];
     String area = tokens[AREA_INDEX];
     String midPoint = tokens[MIDPOINT_INDEX];
@@ -141,7 +141,7 @@ public final class SodirSurveyReader extends SodirReader<SodirSurvey>
     String factMapUrl = tokens[FACT_MAP_URL_INDEX];
     Date syncDate = parseDate(tokens[DATE_SYNCED_INDEX]);
 
-    return new SodirSurvey(npdId,
+    return new SodirSurvey(id,
                            name,
                            status,
                            area,

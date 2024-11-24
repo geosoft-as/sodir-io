@@ -44,8 +44,8 @@ public class SodirWellbore extends SodirObject
   private final Date reclassificationDate_;
   private final String siteSurvey_;
 
-  /** NPDID for the site survey. */
-  private final String npdidSiteSurvey_;
+  /** Sodir ID for the site survey. */
+  private final String idSiteSurvey_;
 
   /** Plugged and abandon date. */
   private final Date pluggedAndAbandonDate_;
@@ -79,13 +79,13 @@ public class SodirWellbore extends SodirObject
   private final String namePart6_;
   private final String diskosWellboreType_;
   private final String diskosWellboreParent_;
-  private final String npdidDiscovery_;
-  private final String npdidField_;
+  private final String idDiscovery_;
+  private final String idField_;
   private final Date wdssQcDate_;
   private final Date releaseDate_;
-  private final String npdidProductionLicense_;
-  private final String npdidFacilityDrilling_;
-  private final String npdidWellboreReclass_;
+  private final String idProductionLicense_;
+  private final String idFacilityDrilling_;
+  private final String idWellboreReclass_;
   private final Date mainLevelUpdatedDate_;
   private final Date updatedDate_;
 
@@ -93,7 +93,7 @@ public class SodirWellbore extends SodirObject
    * Create a Sodir wellbore instance.
    */
   SodirWellbore(String type,
-                String npdId,
+                String id,
                 String name,
                 String wellName,
                 String drillingOperator,
@@ -126,7 +126,7 @@ public class SodirWellbore extends SodirObject
                 String reclassFromWellbore,
                 Date reclassificationDate,
                 String siteSurvey,
-                String npdidSiteSurvey,
+                String idSiteSurvey,
                 Date pluggedAndAbandonDate,
                 Date pluggedDate,
                 String licenseTargetName,
@@ -155,18 +155,18 @@ public class SodirWellbore extends SodirObject
                 String factMapUrl,
                 String diskosWellboreType,
                 String diskosWellboreParent,
-                String npdidDiscovery,
-                String npdidField,
+                String idDiscovery,
+                String idField,
                 Date wdssQcDate,
                 Date releaseDate,
-                String npdidProductionLicense,
-                String npdidFacilityDrilling,
-                String npdidWellboreReclass,
+                String idProductionLicense,
+                String idFacilityDrilling,
+                String idWellboreReclass,
                 Date mainLevelUpdatedDate,
                 Date updatedDate,
                 Date syncDate)
   {
-    super(type, npdId, name, factPageUrl, factMapUrl, null, syncDate);
+    super(type, id, name, factPageUrl, factMapUrl, null, syncDate);
 
     wellName_ = wellName;
     drillingOperator_ = drillingOperator;
@@ -184,7 +184,7 @@ public class SodirWellbore extends SodirObject
     discovery_ = discovery;
     isDiscoveryWellbore_ = isDiscoveryWellbore;
     siteSurvey_ = siteSurvey;
-    npdidSiteSurvey_ = npdidSiteSurvey;
+    idSiteSurvey_ = idSiteSurvey;
     kellyBushElevation_ = kellyBushElevation;
     finalVerticalDepth_ = finalVerticalDepth;
     totalDepth_ = totalDepth;
@@ -226,13 +226,13 @@ public class SodirWellbore extends SodirObject
     namePart6_ = namePart6;
     diskosWellboreType_ = diskosWellboreType;
     diskosWellboreParent_ = diskosWellboreParent;
-    npdidDiscovery_ = npdidDiscovery;
-    npdidField_ = npdidField;
+    idDiscovery_ = idDiscovery;
+    idField_ = idField;
     wdssQcDate_ = wdssQcDate;
     releaseDate_ = releaseDate;
-    npdidProductionLicense_ = npdidProductionLicense;
-    npdidFacilityDrilling_ = npdidFacilityDrilling;
-    npdidWellboreReclass_ = npdidWellboreReclass;
+    idProductionLicense_ = idProductionLicense;
+    idFacilityDrilling_ = idFacilityDrilling;
+    idWellboreReclass_ = idWellboreReclass;
     mainLevelUpdatedDate_ = mainLevelUpdatedDate;
     updatedDate_ = updatedDate;
   }
@@ -853,9 +853,9 @@ public class SodirWellbore extends SodirObject
    *
    * @return  Site survey of this wellbore. Null if N/A or unknown.
    */
-  public String getNpdidSiteSurvey()
+  public String getIdSiteSurvey()
   {
-    return npdidSiteSurvey_;
+    return idSiteSurvey_;
   }
 
   /**
@@ -1298,9 +1298,9 @@ public class SodirWellbore extends SodirObject
    *
    * @return  ID of the discovery of this wellbore. Null if N/A or unknown.
    */
-  public String getNpdidDiscovery()
+  public String getIdDiscovery()
   {
-    return npdidDiscovery_;
+    return idDiscovery_;
   }
 
   /**
@@ -1313,9 +1313,9 @@ public class SodirWellbore extends SodirObject
    *
    * @return  ID of the field of this wellbore. Null if N/A or unknown.
    */
-  public String getNpdidField()
+  public String getIdField()
   {
-    return npdidField_;
+    return idField_;
   }
 
   /**
@@ -1362,9 +1362,9 @@ public class SodirWellbore extends SodirObject
    *
    * @return  ID of the production license of this wellbore. Null if N/A or unknown.
    */
-  public String getNpdidProductionLicense()
+  public String getIdProductionLicense()
   {
-    return npdidProductionLicense_;
+    return idProductionLicense_;
   }
 
   /**
@@ -1377,9 +1377,9 @@ public class SodirWellbore extends SodirObject
    *
    * @return  ID of the drilling facility of this wellbore. Null if N/A or unknown.
    */
-  public String getNpdidFacilityDrilling()
+  public String getIdFacilityDrilling()
   {
-    return npdidFacilityDrilling_;
+    return idFacilityDrilling_;
   }
 
   /**
@@ -1392,9 +1392,9 @@ public class SodirWellbore extends SodirObject
    *
    * @return  ID of original wellbore. Null if N/A or unknown.
    */
-  public String getNpdidWellboreReclass()
+  public String getIdWellboreReclass()
   {
-    return npdidWellboreReclass_;
+    return idWellboreReclass_;
   }
 
   /**

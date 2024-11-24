@@ -39,7 +39,7 @@ public final class ProductionReader extends SodirReader<Production.Entry>
   private static final int CONDENSATE_INDEX = 6;
   private static final int OIL_EQUIVALENTS_INDEX = 7;
   private static final int WATER_INDEX = 8;
-  private static final int NPDID_INDEX = 9;
+  private static final int ID_INDEX = 9;
 
   /**
    * Create a reader for Sodir field production.
@@ -71,7 +71,7 @@ public final class ProductionReader extends SodirReader<Production.Entry>
     double condensate = parseDouble(tokens[CONDENSATE_INDEX]);
     double oilEquivalents = parseDouble(tokens[OIL_EQUIVALENTS_INDEX]);
     double water = parseDouble(tokens[WATER_INDEX]);
-    String npdidField = tokens[NPDID_INDEX];
+    String idField = tokens[ID_INDEX];
 
     return new Production.Entry(year,
                                 month,
@@ -81,7 +81,7 @@ public final class ProductionReader extends SodirReader<Production.Entry>
                                 condensate,
                                 oilEquivalents,
                                 water,
-                                npdidField);
+                                idField);
   }
 
   /**
@@ -98,7 +98,7 @@ public final class ProductionReader extends SodirReader<Production.Entry>
     if (field == null)
       throw new IllegalArgumentException("field cannot be null");
 
-    String npdidField = field.getNpdId();
+    String idField = field.getId();
 
     // Read all production entries
     List<Production.Entry> allProductionEntries = read();
@@ -108,7 +108,7 @@ public final class ProductionReader extends SodirReader<Production.Entry>
     //
     List<Production.Entry> fieldProductionEntries = new ArrayList<>();
     for (Production.Entry productionEntry : allProductionEntries) {
-      if (npdidField.equals(productionEntry.getNpdidField()))
+      if (idField.equals(productionEntry.getIdField()))
         fieldProductionEntries.add(productionEntry);
     }
 

@@ -46,19 +46,19 @@ public final class SodirPipeline extends SodirObject
   /** Maximum water depth of the pipeline. Null if not specified. */
   private final Double waterDepth_;
 
-  /** NPDID of the operator company. Null if N/A. */
-  private final String npdidOperator_;
+  /** Sodir ID of the operator company. Null if N/A. */
+  private final String idOperator_;
 
-  /** NPDID of the from facility. Null if N/A. */
-  private final String npdidFromFacility_;
+  /** Sodir ID of the from facility. Null if N/A. */
+  private final String idFromFacility_;
 
-  /** NPDID of the to facility. Null if N/A. */
-  private final String npdidToFacility_;
+  /** Sodir ID of the to facility. Null if N/A. */
+  private final String idToFacility_;
 
   /**
-   * Create an NPD pipeline instance.
+   * Create a Sodir pipeline instance.
    */
-  SodirPipeline(String npdId,
+  SodirPipeline(String id,
                 String name,
                 String mapLabel,
                 String fromFacility,
@@ -71,15 +71,15 @@ public final class SodirPipeline extends SodirObject
                 String mainGrouping,
                 Double dimension,
                 Double waterDepth,
-                String npdidOperator,
-                String npdidFromFacility,
-                String npdidToFacility,
+                String idOperator,
+                String idFromFacility,
+                String idToFacility,
                 String factPageUrl,
                 String factMapUrl,
                 Date lastChangedDate,
                 Date syncDate)
   {
-    super("tuf_pipeline", npdId, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
+    super("tuf_pipeline", id, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
 
     mapLabel_ = mapLabel;
     fromFacility_ = fromFacility;
@@ -92,9 +92,9 @@ public final class SodirPipeline extends SodirObject
     mainGrouping_ = mainGrouping;
     dimension_ = dimension;
     waterDepth_ = waterDepth;
-    npdidOperator_ = npdidOperator;
-    npdidFromFacility_ = npdidFromFacility;
-    npdidToFacility_ = npdidToFacility;
+    idOperator_ = idOperator;
+    idFromFacility_ = idFromFacility;
+    idToFacility_ = idToFacility;
   }
 
   /**
@@ -277,47 +277,47 @@ public final class SodirPipeline extends SodirObject
   }
 
   /**
-   * Return the NPDID of the operator of this pipeline.
+   * Return the Sodir ID of the operator of this pipeline.
    * <p>
    * <b>Sodir description:</b><br>
    * Sodir's unique id for the company operating the pipeline.
    * <p>
    * int, corresponds to Sodir property <em>cmpNpdidCompany</em>.
    *
-   * @return  The NPDID of the operator of this pipeline. Null if N/A.
+   * @return  The Sodir ID of the operator of this pipeline. Null if N/A.
    */
-  public String getNpdidOperator()
+  public String getIdOperator()
   {
-    return npdidOperator_;
+    return idOperator_;
   }
 
   /**
-   * Return the NPDID of the from facility of this pipeline.
+   * Return the Sodir ID of the from facility of this pipeline.
    * <p>
    * <b>Sodir description:</b><br>
    * Sodir's unique id for the facility where the pipeline starts.
    * <p>
    * int, corresponds to Sodir property <em>fclNpdidFacilityFrom</em>.
    *
-   * @return  The NPDID of the from facility of this pipeline. Null if N/A.
+   * @return  The Sodir ID of the from facility of this pipeline. Null if N/A.
    */
-  public String getNpdidFromFacility()
+  public String getIdFromFacility()
   {
-    return npdidFromFacility_;
+    return idFromFacility_;
   }
 
   /**
-   * Return the NPDID of the to facility of this pipeline.
+   * Return the Sodir ID of the to facility of this pipeline.
    * <p>
    * <b>Sodir description:</b><br>
    * Sodir's unique id for the facility where the pipeline ends.
    * <p>
    * int, corresponds to Sodir property <em>fclNpdidFacilityTo</em>.
    *
-   * @return  The NPDID of the to facility of this pipeline. Null if N/A.
+   * @return  The Sodir ID of the to facility of this pipeline. Null if N/A.
    */
-  public String getNpdidToFacility()
+  public String getIdToFacility()
   {
-    return npdidToFacility_;
+    return idToFacility_;
   }
 }

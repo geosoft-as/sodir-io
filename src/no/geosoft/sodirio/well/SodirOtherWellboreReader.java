@@ -109,8 +109,8 @@ public final class SodirOtherWellboreReader extends SodirReader<SodirOtherWellbo
   private static final int NAME_PART4_INDEX = 38;
   private static final int NAME_PART5_INDEX = 39;
   private static final int NAME_PART6_INDEX = 40;
-  private static final int NPDID_WELLBORE_INDEX = 41;
-  private static final int NPDID_SITE_SURVEY_INDEX = 42;
+  private static final int ID_WELLBORE_INDEX = 41;
+  private static final int ID_SITE_SURVEY_INDEX = 42;
   private static final int FACT_PAGE_URL_INDEX = 43;
   private static final int ALIAS_NAME_INDEX = 44;
   private static final int MAIN_LEVEL_UPDATED_DATE_INDEX = 45;
@@ -199,15 +199,15 @@ public final class SodirOtherWellboreReader extends SodirReader<SodirOtherWellbo
     Integer namePart4 = parseInt(tokens[NAME_PART4_INDEX]);
     String namePart5 = tokens[NAME_PART5_INDEX];
     String namePart6 = tokens[NAME_PART6_INDEX];
-    String npdId = tokens[NPDID_WELLBORE_INDEX];
-    String npdidSiteSurvey = tokens[NPDID_SITE_SURVEY_INDEX];
+    String id = tokens[ID_WELLBORE_INDEX];
+    String idSiteSurvey = tokens[ID_SITE_SURVEY_INDEX];
     String factPageUrl = tokens[FACT_PAGE_URL_INDEX];
     String alias = tokens[ALIAS_NAME_INDEX];
     Date mainLevelUpdatedDate = parseDate(tokens[MAIN_LEVEL_UPDATED_DATE_INDEX]);
     Date updatedDate = parseDate(tokens[UPDATED_DATE_INDEX]);
     Date syncDate = parseDate(tokens[DATESYNC_NPD_INDEX]);
 
-    SodirOtherWellbore wellbore = new SodirOtherWellbore(npdId,
+    SodirOtherWellbore wellbore = new SodirOtherWellbore(id,
                                                          name,
                                                          wellName,
                                                          drillingOperator,
@@ -239,7 +239,7 @@ public final class SodirOtherWellboreReader extends SodirReader<SodirOtherWellbo
                                                          completionYear,
                                                          null, // reclassificationDate
                                                          siteSurvey,
-                                                         npdidSiteSurvey,
+                                                         idSiteSurvey,
                                                          pluggedAndAbondonDate,
                                                          pluggedDate,
                                                          licenseTargetName,

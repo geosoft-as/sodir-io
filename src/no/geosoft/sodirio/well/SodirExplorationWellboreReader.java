@@ -184,13 +184,13 @@ public final class SodirExplorationWellboreReader extends SodirReader<SodirExplo
   private static final int WDSS_QC_DATE_INDEX = 74;
   private static final int RELEASE_DATE_INDEX = 75;
   private static final int RECLASSIFICATION_DATE_INDEX = 76;
-  private static final int NPDID_WELLBORE_INDEX = 77;
-  private static final int NPDID_DISCOVERY_INDEX = 78;
-  private static final int NPDID_FIELD_INDEX = 79;
-  private static final int NPDID_FACILITY_DRILLING_INDEX = 80;
-  private static final int NPDID_WELLBORE_RECLASS_INDEX = 81;
-  private static final int NPDID_PRODUCTION_LICENSE_INDEX = 82;
-  private static final int NPDID_SITE_SURVEY_INDEX = 83;
+  private static final int ID_WELLBORE_INDEX = 77;
+  private static final int ID_DISCOVERY_INDEX = 78;
+  private static final int ID_FIELD_INDEX = 79;
+  private static final int ID_FACILITY_DRILLING_INDEX = 80;
+  private static final int ID_WELLBORE_RECLASS_INDEX = 81;
+  private static final int ID_PRODUCTION_LICENSE_INDEX = 82;
+  private static final int ID_SITE_SURVEY_INDEX = 83;
   private static final int MAIN_LEVEL_UPDATED_DATE_INDEX = 84;
   private static final int UPDATED_DATE_INDEX = 85;
   private static final int DATESYNC_NPD_INDEX = 86;
@@ -313,18 +313,18 @@ public final class SodirExplorationWellboreReader extends SodirReader<SodirExplo
     String diskosWellboreParent = tokens[DISKOS_WELLBORE_PARENT_INDEX];
     Date wdssQcDate = parseDate(tokens[WDSS_QC_DATE_INDEX]);
     Date releaseDate = parseDate(tokens[RELEASE_DATE_INDEX]);
-    String npdId = tokens[NPDID_WELLBORE_INDEX];
-    String npdidDiscovery = tokens[NPDID_DISCOVERY_INDEX];
-    String npdidField = tokens[NPDID_FIELD_INDEX];
-    String npdidFacilityDrilling = tokens[NPDID_FACILITY_DRILLING_INDEX];
-    String npdidWellboreReclass = tokens[NPDID_WELLBORE_RECLASS_INDEX];
-    String npdidProductionLicense = tokens[NPDID_PRODUCTION_LICENSE_INDEX];
-    String npdidSiteSurvey = tokens[NPDID_SITE_SURVEY_INDEX];
+    String id = tokens[ID_WELLBORE_INDEX];
+    String idDiscovery = tokens[ID_DISCOVERY_INDEX];
+    String idField = tokens[ID_FIELD_INDEX];
+    String idFacilityDrilling = tokens[ID_FACILITY_DRILLING_INDEX];
+    String idWellboreReclass = tokens[ID_WELLBORE_RECLASS_INDEX];
+    String idProductionLicense = tokens[ID_PRODUCTION_LICENSE_INDEX];
+    String idSiteSurvey = tokens[ID_SITE_SURVEY_INDEX];
     Date mainLevelUpdatedDate = parseDate(tokens[MAIN_LEVEL_UPDATED_DATE_INDEX]);
     Date updatedDate = parseDate(tokens[UPDATED_DATE_INDEX]);
     Date syncDate = parseDate(tokens[DATESYNC_NPD_INDEX]);
 
-    SodirExplorationWellbore wellbore = new SodirExplorationWellbore(npdId,
+    SodirExplorationWellbore wellbore = new SodirExplorationWellbore(id,
                                                                      name,
                                                                      wellName,
                                                                      drillingOperator,
@@ -357,7 +357,7 @@ public final class SodirExplorationWellboreReader extends SodirReader<SodirExplo
                                                                      reclassFromWellbore,
                                                                      reclassificationDate,
                                                                      siteSurvey,
-                                                                     npdidSiteSurvey,
+                                                                     idSiteSurvey,
                                                                      pluggedAndAbandonDate,
                                                                      pluggedDate,
                                                                      licenseTargetName,
@@ -386,13 +386,13 @@ public final class SodirExplorationWellboreReader extends SodirReader<SodirExplo
                                                                      factMapUrl,
                                                                      diskosWellboreType,
                                                                      diskosWellboreParent,
-                                                                     npdidDiscovery,
-                                                                     npdidField,
+                                                                     idDiscovery,
+                                                                     idField,
                                                                      wdssQcDate,
                                                                      releaseDate,
-                                                                     npdidProductionLicense,
-                                                                     npdidFacilityDrilling,
-                                                                     npdidWellboreReclass,
+                                                                     idProductionLicense,
+                                                                     idFacilityDrilling,
+                                                                     idWellboreReclass,
                                                                      mainLevelUpdatedDate,
                                                                      updatedDate,
                                                                      syncDate,

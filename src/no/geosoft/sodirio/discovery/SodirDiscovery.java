@@ -33,14 +33,14 @@ public final class SodirDiscovery extends SodirObject
 
   private final String ownerName_;
 
-  private final String npdidField_;
+  private final String idField_;
 
-  private final String npdidWellbore_;
+  private final String idWellbore_;
 
   /**
    * Create a Sodir discovery instance.
    */
-  SodirDiscovery(String npdId,
+  SodirDiscovery(String id,
                  String name,
                  String activityStatus,
                  String hydrocarbonType,
@@ -52,15 +52,15 @@ public final class SodirDiscovery extends SodirObject
                  String resourcesDiscoveryName,
                  String ownerKind,
                  String ownerName,
-                 String npdidField,
-                 String npdidWellbore,
+                 String idField,
+                 String idWellbore,
                  String factPageUrl,
                  String factMapUrl,
                  Date mainLevelUpdatedIndex,
                  Date lastChangedDate,
                  Date syncDate)
   {
-    super("discovery", npdId, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
+    super("discovery", id, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
 
     activityStatus_ = activityStatus;
     hydrocarbonType_ = hydrocarbonType;
@@ -72,8 +72,8 @@ public final class SodirDiscovery extends SodirObject
     resourcesDiscoveryName_ = resourcesDiscoveryName;
     ownerKind_ = ownerKind;
     ownerName_ = ownerName;
-    npdidField_ = npdidField;
-    npdidWellbore_ = npdidWellbore;
+    idField_ = idField;
+    idWellbore_ = idWellbore;
   }
 
   /**
@@ -253,22 +253,22 @@ public final class SodirDiscovery extends SodirObject
   }
 
   /**
-   * Return NPDID of the field of this discovery.
+   * Return Sodir ID of the field of this discovery.
    *
-   * @return  NPDID of the field of this discovery. Null if unknown or N/A.
+   * @return  Sodir ID of the field of this discovery. Null if unknown or N/A.
    */
-  public String getNpdidField()
+  public String getIdField()
   {
-    return npdidField_;
+    return idField_;
   }
 
   /**
-   * Return NPDID of the wellbore of this discovery.
+   * Return Sodir ID of the wellbore of this discovery.
    *
-   * @return  NPDID of the wellbore of this discovery. Null if unknown or N/A.
+   * @return  Sodir ID of the wellbore of this discovery. Null if unknown or N/A.
    */
-  public String getNpdidWellbore()
+  public String getIdWellbore()
   {
-    return npdidWellbore_;
+    return idWellbore_;
   }
 }

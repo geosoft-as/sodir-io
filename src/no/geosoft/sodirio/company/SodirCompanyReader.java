@@ -44,7 +44,7 @@ public final class SodirCompanyReader extends SodirReader<SodirCompany>
   private static final int SHORT_NAME_INDEX = 2;
   private static final int NATION_CODE_INDEX = 3;
   private static final int SURVEY_PREFIX_INDEX = 4;
-  private static final int NPDID_INDEX = 5;
+  private static final int ID_INDEX = 5;
   private static final int IS_CURRENT_LICENSE_OPERATOR_INDEX = 6;
   private static final int IS_FORMER_LICENSE_OPERATOR_INDEX = 7;
   private static final int IS_CURRENT_LICENSE_LICENSEE_INDEX = 8;
@@ -100,7 +100,7 @@ public final class SodirCompanyReader extends SodirReader<SodirCompany>
     if (tokens.length != 19)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
-    String npdId = tokens[NPDID_INDEX];
+    String id = tokens[ID_INDEX];
     String name = tokens[NAME_INDEX];
     String organizationNumber = tokens[ORGANIZATION_NUMBER_INDEX];
     String shortName = tokens[SHORT_NAME_INDEX];
@@ -120,7 +120,7 @@ public final class SodirCompanyReader extends SodirReader<SodirCompany>
     boolean isFormerBunsinessArrangementPartner = parseBoolean(tokens[IS_FORMER_BUSINESS_ARRANGEMENT_PARTNER_INDEX]);
     Date syncDate = parseDate(tokens[DATE_SYNCED_INDEX]);
 
-    return new SodirCompany(npdId,
+    return new SodirCompany(id,
                             name,
                             organizationNumber,
                             shortName,

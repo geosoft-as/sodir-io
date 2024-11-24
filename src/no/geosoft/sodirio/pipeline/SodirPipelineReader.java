@@ -52,12 +52,12 @@ public final class SodirPipelineReader extends SodirReader<SodirPipeline>
   private static final int MAIN_GROUPING_INDEX = 9;
   private static final int DIMENSION_INDEX = 10;
   private static final int WATER_DEPTH_INDEX = 11;
-  private static final int NPDID_OPERATOR_INDEX = 12;
-  private static final int NPDID_FROM_FACILITY_INDEX = 13;
-  private static final int NPDID_TO_FACILITY_INDEX = 14;
+  private static final int ID_OPERATOR_INDEX = 12;
+  private static final int ID_FROM_FACILITY_INDEX = 13;
+  private static final int ID_TO_FACILITY_INDEX = 14;
   private static final int FACT_PAGE_URL_INDEX = 15;
   private static final int FACT_MAP_URL_INDEX = 16;
-  private static final int NPDID_INDEX = 17;
+  private static final int ID_INDEX = 17;
   private static final int LAST_CHANGED_DATE_INDEX = 18;
   private static final int SYNCED_DATE_INDEX = 19;
 
@@ -114,16 +114,16 @@ public final class SodirPipelineReader extends SodirReader<SodirPipeline>
     String mainGrouping = tokens[MAIN_GROUPING_INDEX];
     Double dimension = parseDouble(tokens[DIMENSION_INDEX]);
     Double waterDepth = parseDouble(tokens[WATER_DEPTH_INDEX]);
-    String npdidOperator  = tokens[NPDID_OPERATOR_INDEX];
-    String npdidFromFacility = tokens[NPDID_FROM_FACILITY_INDEX];
-    String npdidToFacility = tokens[NPDID_TO_FACILITY_INDEX];
+    String idOperator  = tokens[ID_OPERATOR_INDEX];
+    String idFromFacility = tokens[ID_FROM_FACILITY_INDEX];
+    String idToFacility = tokens[ID_TO_FACILITY_INDEX];
     String factPageUrl = tokens[FACT_PAGE_URL_INDEX];
     String factMapUrl = tokens[FACT_MAP_URL_INDEX];
-    String npdId = tokens[NPDID_INDEX];
+    String id = tokens[ID_INDEX];
     Date lastChangedDate = parseDate(tokens[LAST_CHANGED_DATE_INDEX]);
     Date syncDate = parseDate(tokens[SYNCED_DATE_INDEX]);
 
-    return new SodirPipeline(npdId,
+    return new SodirPipeline(id,
                              name,
                              mapLabel,
                              fromFacility,
@@ -136,9 +136,9 @@ public final class SodirPipelineReader extends SodirReader<SodirPipeline>
                              mainGrouping,
                              dimension,
                              waterDepth,
-                             npdidOperator,
-                             npdidFromFacility,
-                             npdidToFacility,
+                             idOperator,
+                             idFromFacility,
+                             idToFacility,
                              factPageUrl,
                              factMapUrl,
                              lastChangedDate,

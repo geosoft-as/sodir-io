@@ -16,7 +16,7 @@ public class SodirStratigraphy
   private final String level_;
   private final int lithostratigraphicUnitId_;
   private final Date wellboreCompletion_;
-  private final int wellboreNpdId_;
+  private final int wellboreId_;
   private final Date lastUpdated_;
   private final Date lastSynced_;
 
@@ -41,7 +41,7 @@ public class SodirStratigraphy
     level_ = level;
     lithostratigraphicUnitId_ = stratigrahpicUnitId;
     wellboreCompletion_ = wellboreCompletion;
-    wellboreNpdId_ = wellboreId;
+    wellboreId_ = wellboreId;
     lastUpdated_ = lastUpdated;
     lastSynced_ = lastSynced;
   }
@@ -160,18 +160,18 @@ public class SodirStratigraphy
   }
 
   /**
-   * Return the wellbore NPDID of this stratigraphy.
+   * Return the wellbore Sodir ID of this stratigraphy.
    * <p>
    * <b>Sodir description</b><br>
    * Sodir's unique id for the wellbore.
    * <p>
    * int, corresponds to Sodir property <em>wlbNPDID_wellbore</em>
    *
-   * @return Wellbore NPDID of this stratigraphy.
+   * @return Wellbore Sodir ID of this stratigraphy.
    */
-  public int getWellboreNpdId()
+  public int getWellboreId()
   {
-    return wellboreNpdId_;
+    return wellboreId_;
   }
 
   /**
@@ -205,7 +205,7 @@ public class SodirStratigraphy
     return "NpdStratigraphy [wellboreName=" + wellboreName_ + ", topDepth=" + topDepth_ + ", bottomDepth="
         + bottomDepth_ + ", lithostratigraphicUnit=" + lithostratigraphicUnit_ + ", level=" + level_
         + ", lithostratigraphicUnitId=" + lithostratigraphicUnitId_ + ", wellboreCompletion="
-        + wellboreCompletion_ + ", wellboreNpdId=" + wellboreNpdId_ + ", lastUpdated=" + lastUpdated_
+        + wellboreCompletion_ + ", wellboreId=" + wellboreId_ + ", lastUpdated=" + lastUpdated_
         + ", lastSynced=" + lastSynced_ + "]";
   }
 }

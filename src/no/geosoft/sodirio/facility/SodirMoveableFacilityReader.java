@@ -38,7 +38,7 @@ public final class SodirMoveableFacilityReader extends SodirReader<SodirMoveable
   private static final int AOC_STATUS_INDEX = 4;
   private static final int NATION_INDEX = 5;
   private static final int FACT_PAGE_URL_INDEX = 6;
-  private static final int NPDID_INDEX = 7;
+  private static final int ID_INDEX = 7;
   private static final int RESPONSIBLE_COMPANY_ID_INDEX = 8;
   private static final int DATE_UPDATED_INDEX = 9;
   private static final int SYNC_DATE_INDEX = 10;
@@ -84,7 +84,7 @@ public final class SodirMoveableFacilityReader extends SodirReader<SodirMoveable
     if (tokens.length != 11)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
-    String npdId = tokens[NPDID_INDEX];
+    String id = tokens[ID_INDEX];
     String name = tokens[NAME_INDEX];
     String responsibleCompanyName = tokens[RESPONSIBLE_COMPANY_NAME_INDEX];
     String responsibleCompanyId = tokens[RESPONSIBLE_COMPANY_ID_INDEX];
@@ -96,7 +96,7 @@ public final class SodirMoveableFacilityReader extends SodirReader<SodirMoveable
     Date lastChangedDate = parseDate(tokens[DATE_UPDATED_INDEX]);
     Date syncDate = parseDate(tokens[SYNC_DATE_INDEX]);
 
-    return new SodirMoveableFacility(npdId,
+    return new SodirMoveableFacility(id,
                                      name,
                                      responsibleCompanyName,
                                      kind,

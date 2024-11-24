@@ -79,7 +79,7 @@ public final class SodirSurvey extends SodirObject
   /**
    * Create a Sodir survey instance.
    */
-  SodirSurvey(String npdId,
+  SodirSurvey(String id,
               String name,
               String status,
               String area,
@@ -106,7 +106,7 @@ public final class SodirSurvey extends SodirObject
               String factMapUrl,
               Date syncDate)
   {
-    super("survey_level1_planning_finished", npdId, name, factPageUrl, factMapUrl, null, syncDate);
+    super("survey_level1_planning_finished", id, name, factPageUrl, factMapUrl, null, syncDate);
 
     status_ = status;
     area_ = area;

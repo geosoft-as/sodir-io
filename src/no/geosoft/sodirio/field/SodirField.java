@@ -40,13 +40,13 @@ public final class SodirField extends SodirObject
   private final String hydrocarbonType_;
 
   /** NPDID of owner. Null if N/A or unknown. */
-  private final String npdidOwner_;
+  private final String idOwner_;
 
   /** NPDID of discovery wellbore. Null if N/A or unknown. */
-  private final String npdidDiscoveryWellbore_;
+  private final String idDiscoveryWellbore_;
 
   /** NPDID of operator. Null if N/A or unknown. */
-  private final String npdidOperator_;
+  private final String idOperator_;
 
   /** Lock used when setting production. */
   private final Object lock_ = new Object();
@@ -57,7 +57,7 @@ public final class SodirField extends SodirObject
   /**
    * Create an Sodir field instance.
    */
-  SodirField(String npdId,
+  SodirField(String id,
              String name,
              String operatorName,
              String activityStatus,
@@ -68,16 +68,16 @@ public final class SodirField extends SodirObject
              String ownerName,
              String mainSupplyBase,
              String hydrocarbonType,
-             String npdidOwner,
-             String npdidDiscoveryWellbore,
-             String npdidOperator,
+             String idOwner,
+             String idDiscoveryWellbore,
+             String idOperator,
              String factPageUrl,
              String factMapUrl,
              Date mainLevelUpdatedDate,
              Date lastChangedDate,
              Date syncDate)
   {
-    super("field", npdId, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
+    super("field", id, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
 
     operatorName_ = operatorName;
     activityStatus_ = activityStatus;
@@ -88,9 +88,9 @@ public final class SodirField extends SodirObject
     ownerName_ = ownerName;
     mainSupplyBase_ = mainSupplyBase;
     hydrocarbonType_ = hydrocarbonType;
-    npdidOwner_ = npdidOwner;
-    npdidDiscoveryWellbore_ = npdidDiscoveryWellbore;
-    npdidOperator_ = npdidOperator;
+    idOwner_ = idOwner;
+    idDiscoveryWellbore_ = idDiscoveryWellbore;
+    idOperator_ = idOperator;
   }
 
   /**
@@ -246,47 +246,47 @@ public final class SodirField extends SodirObject
    * @return  Unique ID of the license of this field.
    */
   /**
-   * Return the NPDID of the owner of this field.
+   * Return the Sodir ID of the owner of this field.
    * <p>
    * <b>Sodir description:</b><br>
    * <p>
    * int, corresponds to Sodir property <em>fldNpdidOwner</em>.
    *
-   * @return  NPDID of the owner of this field. Null if N/A or unknown.
+   * @return  Sodir ID of the owner of this field. Null if N/A or unknown.
    */
-  public String getNpdidOwner()
+  public String getIdOwner()
   {
-    return npdidOwner_;
+    return idOwner_;
   }
 
   /**
-   * Return NPDID of the dicovery wellbore of this field.
+   * Return Sodir ID of the dicovery wellbore of this field.
    * <p>
    * <b>Sodir description:</b><br>
    * Sodir's unique id for wellbores.
    * <p>
    * int, corresponds to Sodir property <em>wlbNpdidWellbore</em>.
    *
-   * @return  NPDID of the discovery wellbore of this field. Null if N/A or unknown.
+   * @return  Sodir ID of the discovery wellbore of this field. Null if N/A or unknown.
    */
-  public String getNpdidDiscoveryWellbore()
+  public String getIdDiscoveryWellbore()
   {
-    return npdidDiscoveryWellbore_;
+    return idDiscoveryWellbore_;
   }
 
   /**
-   * Return the NPDID of the opertaor of this field.
+   * Return the Sodir ID of the opertaor of this field.
    * <p>
    * <b>Sodir description:</b><br>
    * Sodir's unique id for companies.
    * <p>
    * varchar(), corresponds to Sodir property <em>cmpNpdidCompany</em>.
    *
-   * @return  NPDID of the operator of this field. Null if N/A or unknown.
+   * @return  Sodir ID of the operator of this field. Null if N/A or unknown.
    */
-  public String getNpdidOperator()
+  public String getIdOperator()
   {
-    return npdidOperator_;
+    return idOperator_;
   }
 
   /**

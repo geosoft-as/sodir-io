@@ -21,7 +21,7 @@ public final class SodirMoveableFacility extends SodirFacility
   /**
    * Create a Sodir moveable facility instance.
    */
-  SodirMoveableFacility(String npdId,
+  SodirMoveableFacility(String id,
                         String name,
                         String responsibleCompanyName,
                         String kind,
@@ -33,7 +33,7 @@ public final class SodirMoveableFacility extends SodirFacility
                         Date lastChangedDate,
                         Date syncDate)
   {
-    super("facility_moveable", npdId, name, kind, functions, nation, factPageUrl, null,  lastChangedDate, syncDate);
+    super("facility_moveable", id, name, kind, functions, nation, factPageUrl, null,  lastChangedDate, syncDate);
 
     aocStatus_ = aocStatus;
     responsibleCompanyName_ = responsibleCompanyName;

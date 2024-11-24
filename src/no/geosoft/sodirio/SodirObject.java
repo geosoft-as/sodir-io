@@ -19,7 +19,7 @@ public abstract class SodirObject
   private final String type_;
 
   /** The Sodir unique ID of the object. Non-null. */
-  private final String npdId_;
+  private final String id_;
 
   /** The Sodir object name. Non-null. */
   private final String name_;
@@ -40,7 +40,7 @@ public abstract class SodirObject
    * Create a new Sodir object.
    *
    * @param type             Type name as used by Sodir. Non-null.
-   * @param npdId            Sodir unique ID. Non-null.
+   * @param id               Sodir unique ID. Non-null.
    * @param name             Object name. Non-null.
    * @param factPageUrl      URL to Sodir fact page for this instance. Null if N/A.
    * @param factMapUrl       URL to Sodir fact map for this instance. Null if N/A.
@@ -49,7 +49,7 @@ public abstract class SodirObject
    * @throws IllegalArgumentException  If type, npdIo or name is null.
    */
   protected SodirObject(String type,
-                        String npdId,
+                        String id,
                         String name,
                         String factPageUrl,
                         String factMapUrl,
@@ -59,14 +59,14 @@ public abstract class SodirObject
     if (type == null)
       throw new IllegalArgumentException("type cannot be null");
 
-    if (npdId == null)
-      throw new IllegalArgumentException("npdId cannot be null");
+    if (id == null)
+      throw new IllegalArgumentException("id cannot be null");
 
     if (name == null)
       throw new IllegalArgumentException("name cannot be null");
 
     type_ = type;
-    npdId_ = npdId;
+    id_ = id;
     name_ = name;
     factPageUrl_ = factPageUrl;
     factMapUrl_ = factMapUrl;
@@ -89,9 +89,9 @@ public abstract class SodirObject
    *
    * @return  The Sodir unique ID of this instance. Never null.
    */
-  public String getNpdId()
+  public String getId()
   {
-    return npdId_;
+    return id_;
   }
 
   /**
@@ -148,7 +148,7 @@ public abstract class SodirObject
   @Override
   public int hashCode()
   {
-    return npdId_.hashCode();
+    return id_.hashCode();
   }
 
   /** {@inheritDoc} */
@@ -166,7 +166,7 @@ public abstract class SodirObject
 
     SodirObject sodirObject = (SodirObject) object;
 
-    return npdId_.equals(sodirObject.npdId_);
+    return id_.equals(sodirObject.id_);
   }
 
   /** {@inheritDoc} */

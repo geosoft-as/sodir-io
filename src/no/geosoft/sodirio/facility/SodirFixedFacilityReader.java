@@ -71,7 +71,7 @@ public final class SodirFixedFacilityReader extends SodirReader<SodirFixedFacili
   private static final int NATION_INDEX = 21;
   private static final int FACT_PAGE_URL_INDEX = 22;
   private static final int FACT_MAP_URL_INDEX = 23;
-  private static final int NPDID_INDEX = 24;
+  private static final int ID_INDEX = 24;
   private static final int DATE_UPDATED_INDEX = 25;
   private static final int SYNC_DATE_INDEX = 26;
 
@@ -116,7 +116,7 @@ public final class SodirFixedFacilityReader extends SodirReader<SodirFixedFacili
     if (tokens.length != 27)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
-    String npdId = tokens[NPDID_INDEX];
+    String id = tokens[ID_INDEX];
     String name = tokens[NAME_INDEX];
     String kind = tokens[KIND_INDEX];
     String functions = tokens[FUNCTIONS_INDEX];
@@ -142,7 +142,7 @@ public final class SodirFixedFacilityReader extends SodirReader<SodirFixedFacili
     Date lastChangedDate = parseDate(tokens[DATE_UPDATED_INDEX]);
     Date syncDate = parseDate(tokens[SYNC_DATE_INDEX]);
 
-    return new SodirFixedFacility(npdId,
+    return new SodirFixedFacility(id,
                                   name,
                                   kind,
                                   functions,

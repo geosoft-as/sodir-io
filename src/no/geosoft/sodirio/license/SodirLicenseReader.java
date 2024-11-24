@@ -46,7 +46,7 @@ public final class SodirLicenseReader extends SodirReader<SodirLicense>
   private static final int ORIGINAL_AREA_INDEX = 7;
   private static final int CURRENT_AREA_INDEX = 8;
   private static final int PHASE_INDEX = 9;
-  private static final int NPDID_INDEX = 10;
+  private static final int ID_INDEX = 10;
   private static final int FACT_PAGE_URL_INDEX = 11;
   private static final int FACT_MAP_URL_INDEX = 12;
   private static final int MAIN_LEVEL_UPDATED_DATE_INDEX = 13;
@@ -94,7 +94,7 @@ public final class SodirLicenseReader extends SodirReader<SodirLicense>
     if (tokens.length != 16)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
-    String npdId = tokens[NPDID_INDEX];
+    String id = tokens[ID_INDEX];
     String name = tokens[NAME_INDEX];
     String activity = tokens[ACTIVITY_INDEX];
     String mainArea = tokens[MAIN_AREA_INDEX];
@@ -111,7 +111,7 @@ public final class SodirLicenseReader extends SodirReader<SodirLicense>
     Date lastChangedDate = parseDate(tokens[LAST_CHANGED_DATE_INDEX]);
     Date syncDate = parseDate(tokens[SYNC_DATE_INDEX]);
 
-    return new SodirLicense(npdId,
+    return new SodirLicense(id,
                             name,
                             activity,
                             mainArea,

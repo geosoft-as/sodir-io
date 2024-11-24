@@ -84,7 +84,7 @@ public final class Production
     /** Water production. Million Sm\u00b3. */
     private final double water_;
 
-    private final String npdidField_;
+    private final String idField_;
 
     /**
      * Create one production entry instance representing
@@ -98,7 +98,7 @@ public final class Production
      * @param condensate     Net condensate production. Sm\u00b3.
      * @param oilEquivalents Net oil equivalents production. Sm\u00b3.
      * @param water          Water production. Sm\u00b3.
-     * @param npdidField     NPDID of the associated field.
+     * @param idField        Sodir ID of the associated field.
      */
     Entry(int year,
           int month,
@@ -108,7 +108,7 @@ public final class Production
           double condensate,
           double oilEquivalents,
           double water,
-          String npdidField)
+          String idField)
     {
       assert month >= 1 && month <= 12 : "Invalid month: " + month;
 
@@ -120,7 +120,7 @@ public final class Production
       condensate_ = condensate;
       oilEquivalents_ = oilEquivalents;
       water_ = water;
-      npdidField_ = npdidField;
+      idField_ = idField;
     }
 
     /**
@@ -203,9 +203,9 @@ public final class Production
       return water_;
     }
 
-    String getNpdidField()
+    String getIdField()
     {
-      return npdidField_;
+      return idField_;
     }
 
     /** {@inheritDoc} */

@@ -12,7 +12,7 @@ import java.util.List;
 public final class SodirWellboreStratigraphy
 {
   private final String wellboreName_;
-  private final int wellboreNpdId_;
+  private final int wellboreId_;
   private final int topDepth_;
   private final int bottomDepth_;
   private final Date wellboreCompletion_;
@@ -30,7 +30,7 @@ public final class SodirWellboreStratigraphy
   SodirWellboreStratigraphy(List<SodirStratigraphy> lithostratigraphy)
   {
     wellboreName_ = lithostratigraphy.get(0).getWellboreName();
-    wellboreNpdId_ = lithostratigraphy.get(0).getWellboreNpdId();
+    wellboreId_ = lithostratigraphy.get(0).getWellboreId();
     wellboreCompletion_ = lithostratigraphy.get(0).getWellboreCompletion();
     lastUpdated_ = lithostratigraphy.get(0).getLastUpdated();
     lastSynced_ = lithostratigraphy.get(0).getLastSynced();
@@ -65,9 +65,9 @@ public final class SodirWellboreStratigraphy
    *
    * @return Wellbore Sodir ID of this wellbore stratigraphy.
    */
-  public int getWellboreNpdId()
+  public int getWellboreId()
   {
-    return wellboreNpdId_;
+    return wellboreId_;
   }
 
   /**

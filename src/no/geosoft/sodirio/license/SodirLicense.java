@@ -43,7 +43,7 @@ public final class SodirLicense extends SodirObject
   /**
    * Create a Sodir license instance.
    */
-  SodirLicense(String npdId,
+  SodirLicense(String id,
                String name,
                String activity,
                String mainArea,
@@ -61,7 +61,7 @@ public final class SodirLicense extends SodirObject
                Date syncDate)
   {
     // NOTE: Sodir has misspelled the type name "licence"!
-    super("licence", npdId, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
+    super("licence", id, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
 
     activity_ = activity;
     mainArea_ = mainArea;

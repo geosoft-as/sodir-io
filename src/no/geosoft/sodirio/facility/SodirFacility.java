@@ -24,7 +24,7 @@ public abstract class SodirFacility extends SodirObject
    * Create an Sodir facility instance.
    */
   protected SodirFacility(String type,
-                          String npdId,
+                          String id,
                           String name,
                           String kind,
                           String functions,
@@ -34,7 +34,7 @@ public abstract class SodirFacility extends SodirObject
                           Date lastChangedDate,
                           Date syncDate)
   {
-    super(type, npdId, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
+    super(type, id, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
 
     kind_ = kind;
     functions_ = functions;

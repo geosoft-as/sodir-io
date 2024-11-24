@@ -19,14 +19,14 @@ public final class SodirDevelopmentWellbore extends SodirWellbore
 
   private final String contentPlanned_;
 
-  private final String npdidFacilityProducing_;
+  private final String idFacilityProducing_;
 
-  private final String npdidTargetProductionLicense_;
+  private final String idTargetProductionLicense_;
 
   /**
    * Create a Sodir development wellbore instance.
    */
-  SodirDevelopmentWellbore(String npdId,
+  SodirDevelopmentWellbore(String id,
                            String name,
                            String wellName,
                            String drillingOperator,
@@ -87,23 +87,23 @@ public final class SodirDevelopmentWellbore extends SodirWellbore
                            String factMapUrl,
                            String diskosWellboreType,
                            String diskosWellboreParent,
-                           String npdidDiscovery,
-                           String npdidField,
+                           String idDiscovery,
+                           String idField,
                            Date wdssQcDate,
                            Date releaseDate,
-                           String npdidProductionLicense,
-                           String npdidFacilityDrilling,
-                           String npdidWellboreReclass,
+                           String idProductionLicense,
+                           String idFacilityDrilling,
+                           String idWellboreReclass,
                            Date mainLevelUpdatedDate,
                            Date updatedDate,
                            Date syncDate,
                            String productionFacility,
                            String contentPlanned,
-                           String npdidFacilityProducing,
-                           String npdidTargetProductionLicense)
+                           String idFacilityProducing,
+                           String idTargetProductionLicense)
   {
     super("wellbore_development",
-          npdId,
+          id,
           name,
           wellName,
           drillingOperator,
@@ -136,7 +136,7 @@ public final class SodirDevelopmentWellbore extends SodirWellbore
           reclassFromWellbore,
           null, // reclassificationDate
           null, // siteSurvey
-          null, // npdidSiteSurvey
+          null, // idSiteSurvey
           pluggedAndAbandonDate,
           pluggedDate,
           licenseTargetName,
@@ -165,23 +165,23 @@ public final class SodirDevelopmentWellbore extends SodirWellbore
           factMapUrl,
           diskosWellboreType,
           diskosWellboreParent,
-          npdidDiscovery,
-          npdidField,
+          idDiscovery,
+          idField,
           wdssQcDate,
           releaseDate,
-          npdidProductionLicense,
-          npdidFacilityDrilling,
-          npdidWellboreReclass,
+          idProductionLicense,
+          idFacilityDrilling,
+          idWellboreReclass,
           mainLevelUpdatedDate,
           updatedDate,
           syncDate);
 
     productionFacility_ = productionFacility;
     contentPlanned_ = contentPlanned;
-    npdidFacilityProducing_ = npdidFacilityProducing;
+    idFacilityProducing_ = idFacilityProducing;
     preDrillEntryDate_ = preDrillEntryDate;
     preDrillCompletionDate_ = preDrillCompletionDate;
-    npdidTargetProductionLicense_ = npdidTargetProductionLicense;
+    idTargetProductionLicense_ = idTargetProductionLicense;
   }
 
   /**
@@ -266,9 +266,9 @@ public final class SodirDevelopmentWellbore extends SodirWellbore
    *
    * @return  ID of the producing facility of this wellbore.
    */
-  public String getNpdidFacilityProducing()
+  public String getIdFacilityProducing()
   {
-    return npdidFacilityProducing_;
+    return idFacilityProducing_;
   }
 
   /**
@@ -284,8 +284,8 @@ public final class SodirDevelopmentWellbore extends SodirWellbore
    *
    * @return  ID of the target production license. Null if N/A.
    */
-  public String getNpdidTargetProductionLicense()
+  public String getIdTargetProductionLicense()
   {
-    return npdidTargetProductionLicense_;
+    return idTargetProductionLicense_;
   }
 }
